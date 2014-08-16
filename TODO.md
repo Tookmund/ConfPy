@@ -1,0 +1,4 @@
+[ ]Fix random spaces in grid
+[ ]Parse configurer output into GUI
+[ ]Parse INI
+[ ]Code Cleanup
