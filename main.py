@@ -5,24 +5,29 @@ import json
 import sys
 
 class window:
-	#root = Tk()
 	
 	def editpopup(self,window,label):
 		self.top = Toplevel(window)
 		Label(self.top,text=label).pack()
 		value = StringVar()
 		entry(self.top,value)
-		return value
+		return value.get()
 	
 	def label(self,window,text):
-		Label(window,text=text).pack()
-
+		retval = Label(window,text=text)
+		retval.pack()
+		return retval
+	
 	def entry(self,window,var):
-		Entry(window,textvariable=var).pack()
+		retval = Entry(window,textvariable=var)
+		retval.pack()
+		return retval
 
 	def option(self,key,text,val):
-		Radiobutton(self.root[key],text=text,variable=self.final[key],value=val).pack()
-
+		retval = Radiobutton(self.root[key],text=text,variable=self.final[key],value=val)
+		retval.pack()
+		return retval
+		
 	def scale(self):
 		pass #popup? some way to get scale values...
 
@@ -50,7 +55,7 @@ class window:
 			self.finaljson[k] = v.get()
 		json.dump(self.finaljson,self.output)
 		print("Dumped")
-		print(self.final)
+		print(self.finaljson)
 		print("In")
 		print(self.outputfile.get())
 	
