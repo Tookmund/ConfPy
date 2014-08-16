@@ -51,8 +51,8 @@ class confpy:
 	
 	def booloptions(self,key,value):
 		self.label(self.root[key],key)
-		self.option("1/0","10")
-		self.option("True/False","tf")
+		self.option(key,"1/0","10")
+		self.option(key,"True/False","tf")
 		
 	def erroroptions(self,key,val):
 		messagebox.showerror(key,"'%s' not a valid int or string" % val)
@@ -79,13 +79,13 @@ class confpy:
 			if (isinstance(self.v,str)):
 				print("found string:",self.v)
 				self.stringoptions(self.k,self.v)
+			elif (isinstance(self.v,bool)):
+				print("found bool:",self.v)
+				self.booloptions(self.k,self.v)
 			elif (isinstance(self.v,int) or isinstance(self.v,float)):
 				print("found int:",self.v)
 				self.intoptions(self.k,self.v)
 			
-			#elif (isinstance(self.v,bool)):
-			#	print("found bool:",self.v)
-			#	self.booloptions(self.k,self.v)
 			
 			else:
 				self.erroroptions(self.k,self.v)
